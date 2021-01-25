@@ -20,7 +20,7 @@ class HolesController < ApplicationController
     end
 
     def destroy
-        byebugh
+        byebug
     end
 
 end
