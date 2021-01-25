@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  round: one
+  score: 1
+  fwloc: 1
+  girloc: 1
+  putts: 
+
+two:
+  round: two
+  score: 1
+  fwloc: 1
+  girloc: 1
+  putts: 
