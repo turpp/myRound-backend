@@ -15,6 +15,21 @@ class RoundsController < ApplicationController
 
     end
 
+    def summary
+        round = Round.find_by(id: params[:id])
+        holes = round.holes
+        all_putts = holes.map do |hole|
+            hole.putts
+        end
+        all_scores = holes.map do |hole|
+            hole.score
+        end
+        total_putts = all_putts.reduce(0){|sum, num| sum + num}
+        total_scores = all_scores.reduce(0){|sum, num| sum+num}
+
+
+    end
+
 
 
     

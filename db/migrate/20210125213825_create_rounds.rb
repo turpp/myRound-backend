@@ -5,6 +5,7 @@ class CreateRounds < ActiveRecord::Migration[6.0]
       t.integer :gir
       t.integer :fir
       t.integer :num_of_holes
+    
 
       t.timestamps
     end

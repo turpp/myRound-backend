@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_214017) do
     t.integer "fwloc"
     t.integer "girloc"
     t.integer "putts"
+    t.integer "par"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["round_id"], name: "index_holes_on_round_id"

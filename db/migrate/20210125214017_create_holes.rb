@@ -6,6 +6,7 @@ class CreateHoles < ActiveRecord::Migration[6.0]
       t.integer :fwloc
       t.integer :girloc
       t.integer :putts
+      t.integer :par
 
       t.timestamps
     end

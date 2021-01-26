@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # resources :holes
+  resources :holes, only: :update
   resources :rounds, except: [:edit, :delete, :index] do
     resources :holes
   end
