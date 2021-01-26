@@ -27,6 +27,7 @@ class RoundsController < ApplicationController
         total_putts = all_putts.reduce(0){|sum, num| sum + num}
         total_scores = all_scores.reduce(0){|sum, num| sum+num}
         gir = round.gir_percentage
+        byebug
         render json: {putts: total_putts, score: total_scores, gir: gir}
 
     end

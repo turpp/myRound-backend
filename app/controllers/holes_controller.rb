@@ -34,7 +34,6 @@ class HolesController < ApplicationController
     def update
         hole = Hole.find_by(id: params[:id])
         hole.update(hole_params)
-        byebug
         render json: hole
     end
 

@@ -3,7 +3,7 @@ class Hole < ApplicationRecord
 
   def gir
     gir_strokes = self.par - 2
-    strokes = self.score = self.putts
+    strokes = self.score - self.putts
     if strokes <= gir_strokes 
       true
     else
