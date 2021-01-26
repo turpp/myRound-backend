@@ -12,7 +12,21 @@ class HolesController < ApplicationController
     end
 
     def create
-        byebug
+        # byebug
+        num_of_holes = params[:num_of_holes].to_i
+        # byebug
+        num_of_holes.times do
+            Hole.create(hole_params) 
+
+        end
+        
+        
+        # hole=Hole.new(round_id: params[:round_id].to_i)
+        # if hole.valid?
+        #     hole.save
+        # else
+        #     'not valid'
+        # end
     end
 
     def update
@@ -21,6 +35,11 @@ class HolesController < ApplicationController
 
     def destroy
         byebug
+    end
+
+    private
+    def hole_params
+       params.require(:hole).permit(:round_id)
     end
 
 end
