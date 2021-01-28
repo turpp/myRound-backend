@@ -32,8 +32,10 @@ class HolesController < ApplicationController
     end
 
     def update
+        # byebug
         hole = Hole.find_by(id: params[:id])
         hole.update(hole_params)
+        byebug
         render json: hole
     end
 
@@ -43,7 +45,7 @@ class HolesController < ApplicationController
 
     private
     def hole_params
-       params.require(:hole).permit(:round_id, :putts, :score, :par)
+       params.require(:hole).permit(:round_id, :putts, :score, :par, :girloc, :fwloc)
     end
 
 end

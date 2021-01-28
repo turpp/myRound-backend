@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_01_25_214017) do
   create_table "holes", force: :cascade do |t|
     t.bigint "round_id", null: false
     t.integer "score"
-    t.integer "fwloc"
-    t.integer "girloc"
+    t.string "fwloc"
+    t.string "girloc"
     t.integer "putts"
     t.integer "par"
     t.datetime "created_at", precision: 6, null: false
