@@ -27,30 +27,37 @@ class RoundsController < ApplicationController
             hole.score
         end
         all_girloc = holes.map do |hole|
-           corArray = hole.girloc.split('-')
-            girX = corArray[0].to_i - 17
-            girY = (corArray[1].to_i - (n * 52))
-            girY += 65
+           corArray = hole.girloc.split(',')
+            # girX = corArray[0].to_i - 8
+            # girY = (corArray[1].to_i - (n * 50))
+            # girY += 10
+            girX = corArray[0].to_i
+            girY = (corArray[1].to_i)
+
             # byebug
             n += 1
             [girX,girY]
         end
         
         all_firloc = holes.map do |hole|
-            corArray = hole.fwloc.split('-')
-            girX = corArray[0].to_i - 17
-            girY = (corArray[1].to_i - (i * 52))
-            girY += 64
-            # byebug
+            corArray = hole.fwloc.split(',')
+            # girX = corArray[0].to_i - 7
+            # girY = (corArray[1].to_i - (i * 52))
+            # girY += 100
+            girX = corArray[0].to_i 
+            girY = (corArray[1].to_i)
+
+            #  byebug
             i += 1
             [girX,girY]
 
         end
         total_putts = all_putts.reduce(0){|sum, num| sum + num}
         total_scores = all_scores.reduce(0){|sum, num| sum+num}
-        gir = round.gir_percentage
+        gir = round.gir_percentage.round(4)
+        fir = round.fir_percentage.round(4)
        
-        render json: {putts: total_putts, score: total_scores, gir: gir, girArray: all_girloc, fwArray: all_firloc}
+        render json: {putts: total_putts, score: total_scores, gir: gir, girArray: all_girloc, fwArray: all_firloc, fir: fir}
 
     end
 
