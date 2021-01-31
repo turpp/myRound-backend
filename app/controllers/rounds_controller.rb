@@ -19,7 +19,8 @@ class RoundsController < ApplicationController
         n=0
         i=0
         round = Round.find_by(id: params[:id])
-        holes = round.holes
+        holes = round.holes.filter {|hole| hole.score != nil}
+        # byebug
         all_putts = holes.map do |hole|
             hole.putts
         end

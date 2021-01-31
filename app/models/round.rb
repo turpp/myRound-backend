@@ -4,7 +4,7 @@ class Round < ApplicationRecord
     
 
     def gir_percentage
-        holes = self.holes
+        holes = self.holes.filter{|hole| hole.score != nil}
         girs = holes.map do |hole|
             hole.gir
         end
@@ -15,7 +15,7 @@ class Round < ApplicationRecord
     end
 
     def fir_percentage
-        holes = self.holes
+        holes = self.holes.filter{|hole| hole.score != nil}
         chances = holes.filter do |hole|
             hole.par != 3
         end
