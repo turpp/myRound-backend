@@ -23,4 +23,18 @@ class Hole < ApplicationRecord
     end
   end
 
+  def scramble
+    if (self.gir == false) && (self.score <= self.par)
+      true
+    elsif (self.gir == false)
+      false
+    else
+      nil
+    end
+
+
+
+  end
+
+
 end

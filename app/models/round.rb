@@ -28,4 +28,18 @@ class Round < ApplicationRecord
         num_of_firs.to_f/firs.count.to_f
 
     end
+
+    def scramble_percentage
+        holes = self.holes.filter{|hole| hole.score != nil}
+
+        chances = holes.map do |hole|
+            hole.scramble
+        end
+
+        scrambles = chances.filter{|x| x != nil }
+
+        num_of_scrambles = scrambles.count{|scramble| scramble == true}
+        num_of_scrambles.to_f/scrambles.count.to_f
+
+    end
 end

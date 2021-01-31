@@ -57,8 +57,9 @@ class RoundsController < ApplicationController
         total_scores = all_scores.reduce(0){|sum, num| sum+num}
         gir = round.gir_percentage.round(4)
         fir = round.fir_percentage.round(4)
+        scramble = round.scramble_percentage.round(4)
        
-        render json: {putts: total_putts, score: total_scores, gir: gir, girArray: all_girloc, fwArray: all_firloc, fir: fir}
+        render json: {putts: total_putts, score: total_scores, gir: gir, girArray: all_girloc, fwArray: all_firloc, fir: fir, scramble: scramble}
 
     end
 
