@@ -16,11 +16,14 @@ class Round < ApplicationRecord
 
     def fir_percentage
         holes = self.holes
-        firs = holes.map do |hole|
-            if hole.par !=3
-            hole.fir
-            end
+        chances = holes.filter do |hole|
+            hole.par != 3
         end
+        firs = chances.map do |hole|
+            hole.fir
+        end
+        
+        # byebug
         num_of_firs = firs.count{|fir| fir == true}
         num_of_firs.to_f/firs.count.to_f
 
