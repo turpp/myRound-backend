@@ -32,4 +32,39 @@ class Round < ApplicationRecord
         num_of_scrambles = scrambles.count{|scramble| scramble == true}
         num_of_scrambles.to_f/scrambles.count.to_f
     end
+
+    def count_putts
+        holes = self.holes
+        all_putts = holes.map do |hole|
+            hole.putts
+        end
+        all_putts.reduce(0){|sum, num| sum + num}
+    end
+
+    def count_scores
+        holes = self.holes
+        all_scores = holes.map do |hole|
+            hole.score
+        end
+        all_scores.reduce(0){|sum, num| sum+num}
+    end
+
+    def gir_dots
+        holes = self.holes
+        all_girloc = holes.map do |hole|
+            corArray = hole.girloc.split(',')
+            [corArray[0].to_i, corArray[1].to_i]
+        end
+        all_girloc
+    end
+
+    def fir_dots
+        holes = self.holes
+        all_firloc = holes.map do |hole|
+            corArray = hole.fwloc.split(',')
+            [corArray[0].to_i, corArray[1].to_i]
+        end
+        all_firloc
+    end
+
 end

@@ -16,37 +16,11 @@ class RoundsController < ApplicationController
     end
 
     def summary
-        n=0
-        i=0
         round = Round.find_by(id: params[:id])
-        holes = round.holes.filter {|hole| hole.score != nil}
-        all_putts = holes.map do |hole|
-            hole.putts
-        end
-        
-        all_scores = holes.map do |hole|
-            hole.score
-        end
-
-        all_girloc = holes.map do |hole|
-           corArray = hole.girloc.split(',')
-            girX = corArray[0].to_i
-            girY = (corArray[1].to_i)
-            n += 1
-            [girX,girY]
-        end
-        
-        all_firloc = holes.map do |hole|
-            corArray = hole.fwloc.split(',')
-            girX = corArray[0].to_i 
-            girY = (corArray[1].to_i)
-            i += 1
-            [girX,girY]
-
-        end
-
-        total_putts = all_putts.reduce(0){|sum, num| sum + num}
-        total_scores = all_scores.reduce(0){|sum, num| sum+num}
+        total_putts = round.count_putts
+        total_scores = round.count_scores
+        all_girloc = round.gir_dots
+        all_firloc = round.fir_dots
         gir = round.gir_percentage.round(4)
         fir = round.fir_percentage.round(4)
         scramble = round.scramble_percentage.round(4)      
