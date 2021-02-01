@@ -12,27 +12,15 @@ class HolesController < ApplicationController
     end
 
     def create
-        # byebug
         holes =[]
         num_of_holes = params[:num_of_holes].to_i
-        # byebug
         num_of_holes.times do
            holes << Hole.create(hole_params) 
         end
         render json: holes
-        
-        
-        
-        # hole=Hole.new(round_id: params[:round_id].to_i)
-        # if hole.valid?
-        #     hole.save
-        # else
-        #     'not valid'
-        # end
     end
 
     def update
-        # byebug
         hole = Hole.find_by(id: params[:id])
         hole.update(hole_params)
         render json: hole

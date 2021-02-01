@@ -31,10 +31,6 @@ class Hole < ApplicationRecord
     else
       nil
     end
-
-
-
   end
-
 
 end
