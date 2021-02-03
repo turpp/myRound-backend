@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 2021_01_25_214017) do
 
   create_table "rounds", force: :cascade do |t|
     t.integer "score", default: 0
+    t.integer "total_putts", default: 0
     t.float "gir", default: 0.0
     t.float "fir", default: 0.0
+    t.float "scramble", default: 0.0
     t.integer "num_of_holes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

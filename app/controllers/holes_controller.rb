@@ -27,6 +27,8 @@ class HolesController < ApplicationController
         round.score += hole.score
         round.gir = round.gir_percentage
         round.fir = round.fir_percentage
+        round.total_putts += hole.putts
+        round.scramble = round.scramble_percentage
         round.save
         
         render json: hole
