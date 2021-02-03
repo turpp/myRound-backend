@@ -1,9 +1,9 @@
 class CreateRounds < ActiveRecord::Migration[6.0]
   def change
     create_table :rounds do |t|
-      t.integer :score
-      t.integer :gir
-      t.integer :fir
+      t.integer :score, default: 0
+      t.float :gir, default: 0
+      t.float :fir, default: 0
       t.integer :num_of_holes
     
 

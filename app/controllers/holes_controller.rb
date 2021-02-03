@@ -23,6 +23,12 @@ class HolesController < ApplicationController
     def update
         hole = Hole.find_by(id: params[:id])
         hole.update(hole_params)
+        round = hole.round
+        round.score += hole.score
+        round.gir = round.gir_percentage
+        round.fir = round.fir_percentage
+        round.save
+        
         render json: hole
     end
 

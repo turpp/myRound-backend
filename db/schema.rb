@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 2021_01_25_214017) do
   end
 
   create_table "rounds", force: :cascade do |t|
-    t.integer "score"
-    t.integer "gir"
-    t.integer "fir"
+    t.integer "score", default: 0
+    t.float "gir", default: 0.0
+    t.float "fir", default: 0.0
     t.integer "num_of_holes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
