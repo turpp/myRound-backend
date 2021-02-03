@@ -24,12 +24,13 @@ class HolesController < ApplicationController
         hole = Hole.find_by(id: params[:id])
         hole.update(hole_params)
         round = hole.round
-        round.score += hole.score
-        round.gir = round.gir_percentage
-        round.fir = round.fir_percentage
-        round.total_putts += hole.putts
-        round.scramble = round.scramble_percentage
-        round.save
+        # round.score += hole.score
+        # round.gir = round.gir_percentage
+        # round.fir = round.fir_percentage
+        # round.total_putts += hole.putts
+        # round.scramble = round.scramble_percentage
+        # round.save
+        round.keep_current(hole)
         
         render json: hole
     end

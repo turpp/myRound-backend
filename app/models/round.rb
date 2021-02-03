@@ -67,4 +67,16 @@ class Round < ApplicationRecord
         all_firloc
     end
 
+    def keep_current(hole)
+        self.score += hole.score
+        self.gir = self.gir_percentage
+        self.fir = self.fir_percentage
+        self.total_putts += hole.putts
+        self.scramble = self.scramble_percentage
+        self.save
+
+    end
+
+    
+
 end
